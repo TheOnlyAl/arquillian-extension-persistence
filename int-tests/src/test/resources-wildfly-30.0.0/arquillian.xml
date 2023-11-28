@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://jboss.org/schema/arquillian"
+    xsi:schemaLocation="http://jboss.org/schema/arquillian
+    http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+  <defaultProtocol type="Servlet 5.0"/>
+
+  <container qualifier="wildfly" default="true">
+    <configuration>
+      <property name="jbossHome">target/wildfly-30.0.0.Final</property>
+      <property name="serverConfig">standalone.xml</property>
+      <property name="javaVmArguments">-Xmx1024m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8787</property>
+    </configuration>
+  </container>
+
+  <extension qualifier="transaction">
+    <property name="manager">java:jboss/UserTransaction</property>
+  </extension>
+
+  <extension qualifier="persistence-script">
+    <property name="scriptsToExecuteBeforeTest">SET REFERENTIAL_INTEGRITY FALSE;</property>
+    <property name="scriptsToExecuteAfterTest">scripts/turn-on-integrity-checks.sql</property>
+  </extension>
+
+  <extension qualifier="persistence-dbunit">
+    <property name="datatypeFactory">org.dbunit.ext.h2.H2DataTypeFactory</property>
+    <property name="schema">public</property>
+  </extension>
+
+</arquillian>
