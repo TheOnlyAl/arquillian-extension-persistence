@@ -1,7 +1,7 @@
 package org.jboss.arquillian.integration.persistence.util;
 
 import java.util.List;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.jboss.arquillian.integration.persistence.example.UserAccount;
 
 import static org.assertj.core.api.Assertions.assertThat;

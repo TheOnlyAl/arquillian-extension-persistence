@@ -20,7 +20,7 @@ package org.jboss.arquillian.persistence.jpa.cache;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import net.jcip.annotations.NotThreadSafe;
 import org.jboss.arquillian.core.api.Instance;
 import org.jboss.arquillian.persistence.JpaCacheEviction;

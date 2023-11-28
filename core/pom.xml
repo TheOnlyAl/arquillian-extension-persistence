@@ -18,8 +18,6 @@
   <description>Extension for controlling data sources</description>
 
   <properties>
-    <version.cdi>1.0-SP1</version.cdi>
-    <version.jta>1.1</version.jta>
     <version.junit_params>1.0.4</version.junit_params>
   </properties>
 
@@ -48,16 +46,16 @@
     </dependency>
 
     <dependency>
-      <groupId>javax.transaction</groupId>
-      <artifactId>jta</artifactId>
+      <groupId>jakarta.transaction</groupId>
+      <artifactId>jakarta.transaction-api</artifactId>
       <version>${version.jta}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>javax</groupId>
-      <artifactId>javaee-api</artifactId>
-      <version>7.0</version>
+      <groupId>jakarta.platform</groupId>
+      <artifactId>jakarta.jakartaee-api</artifactId>
+      <version>${version.jakartaee-api}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -150,7 +148,7 @@
 
     <dependency>
       <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
+      <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
 

@@ -18,8 +18,8 @@
 package org.jboss.arquillian.integration.persistence.test.cleanup;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.integration.persistence.example.Address;
 import org.jboss.arquillian.integration.persistence.example.UserAccount;

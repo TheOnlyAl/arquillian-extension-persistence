@@ -21,8 +21,8 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-import javax.persistence.Cache;
-import javax.persistence.EntityManager;
+import jakarta.persistence.Cache;
+import jakarta.persistence.EntityManager;
 
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;
@@ -94,7 +94,7 @@ public @interface JpaCacheEviction {
      */
     class DefaultJpaCacheEvictionStrategy implements JpaCacheEvictionStrategy {
         /**
-         * @see org.jboss.arquillian.persistence.JpaCacheEvictionStrategy#evictCache(javax.persistence.EntityManager)
+         * @see org.jboss.arquillian.persistence.JpaCacheEvictionStrategy#evictCache(jakarta.persistence.EntityManager)
          */
         @Override
         public void evictCache(EntityManager em) {

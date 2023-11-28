@@ -17,9 +17,9 @@
  */
 package org.jboss.arquillian.integration.persistence.datasource.mysql;
 
-import javax.annotation.sql.DataSourceDefinition;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import jakarta.annotation.sql.DataSourceDefinition;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
 
 @DataSourceDefinition(name = "java:app/datasources/mysql_ds",
     className = "com.mysql.jdbc.jdbc2.optional.MysqlDataSource",

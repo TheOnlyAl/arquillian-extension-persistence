@@ -17,8 +17,8 @@
  */
 package org.jboss.arquillian.integration.persistence.test.customscripts;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.integration.persistence.example.UserAccount;
 import org.jboss.arquillian.integration.persistence.testextension.event.annotation.ExecuteScriptsShouldBeTriggered;
