@@ -23,6 +23,7 @@ import org.jboss.arquillian.core.api.Instance;
 import org.jboss.arquillian.core.api.InstanceProducer;
 import org.jboss.arquillian.core.api.annotation.Inject;
 import org.jboss.arquillian.core.api.annotation.Observes;
+import org.jboss.arquillian.core.spi.EventContext;
 import org.jboss.arquillian.core.spi.ServiceLoader;
 import org.jboss.arquillian.persistence.core.configuration.PersistenceConfiguration;
 import org.jboss.arquillian.persistence.core.datasource.JndiDataSourceProvider;
@@ -117,9 +118,14 @@ public class PersistenceTestTrigger {
         }
     }
 
-    public void afterTest(@Observes(precedence = -2) After afterTestEvent) {
-        if (persistenceExtensionEnabler.get().shouldPersistenceExtensionBeActivated()) {
-            afterPersistenceTestEvent.fire(new AfterPersistenceTest(afterTestEvent));
+    public void afterTest(@Observes EventContext<After> afterTestContext) {
+        try
+        {
+            afterTestContext.proceed();
+        } finally {
+            if (persistenceExtensionEnabler.get().shouldPersistenceExtensionBeActivated()) {
+                afterPersistenceTestEvent.fire(new AfterPersistenceTest(afterTestContext.getEvent()));
+            }
         }
     }
 

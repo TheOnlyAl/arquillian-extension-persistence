@@ -20,6 +20,7 @@ package org.jboss.arquillian.integration.persistence.testextension.event;
 import org.jboss.arquillian.core.api.InstanceProducer;
 import org.jboss.arquillian.core.api.annotation.Inject;
 import org.jboss.arquillian.core.api.annotation.Observes;
+import org.jboss.arquillian.core.spi.EventContext;
 import org.jboss.arquillian.integration.persistence.testextension.event.annotation.*;
 import org.jboss.arquillian.persistence.core.event.*;
 import org.jboss.arquillian.test.spi.annotation.TestScoped;
@@ -68,9 +69,14 @@ public class EventObserver {
         }
     }
 
-    public void verify(@Observes(precedence = -1000000) After after) {
-        for (EventHandlingVerifier eventVerifier : eventTriggersInstance.get().values()) {
-            eventVerifier.verifyPhaseWhenEventWasTriggered();
+    public void verify(@Observes(precedence = 1) EventContext<After> afterTestContext) {
+        try
+        {
+            afterTestContext.proceed();
+        } finally {
+            for (EventHandlingVerifier eventVerifier : eventTriggersInstance.get().values()) {
+                eventVerifier.verifyPhaseWhenEventWasTriggered();
+            }
         }
     }
 
