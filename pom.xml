@@ -66,9 +66,9 @@
 
   <properties>
     <!-- Arquillian dependencies -->
-    <version.arquillian_core>1.7.1.Final</version.arquillian_core>
+    <version.arquillian_core>1.8.0.Final</version.arquillian_core>
     <version.arquillian_transaction>2.0.0</version.arquillian_transaction>
-    <version.dbunit>2.5.4</version.dbunit>
+    <version.dbunit>2.7.3</version.dbunit>
     <version.mysql.driver>5.1.21</version.mysql.driver>
 
     <!-- Testing dependencies -->
